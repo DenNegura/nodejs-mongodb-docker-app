@@ -13,10 +13,11 @@ app.get("/users", async (req, res) => {
   res.json(users);
 });
 
-app.get("/user-create/:userName", async (req, res) => {
+
+app.put("/user/:userName", async (req, res) => {
   const user = new User({ username: req.params['userName'] });
 
-  await user.save().then(() => console.log("User create {name = " + req.params['userName'] + "}"));
+  await user.save().then(() => console.log(`User create {name = ${"userName"}}`));
 
   res.send("User created \n");
 });
